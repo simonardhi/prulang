@@ -1,17 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground, Dimensions } from 'react-native';
+import {StyleSheet, Text, View, ImageBackground, Dimensions} from 'react-native';
 
 export default class ImageAppBar extends React.Component {
     render() {
+        let { image, imgStyle, txtStyle, title} = this.props;
         return (
-            <View style={styles.navContainer}>
-                <ImageBackground
-                    source={require('./src/assets/images/bg/material-design-bg.jpg')}
-                    imageStyle={{borderTopLeftRadius: 5, borderTopRightRadius: 5, height: '100%', width: '100%'}}
-                    style={styles.bgImage}>
-                    <Text style={styles.txtLink}>Menu 1</Text>
-                </ImageBackground>
-            </View>
+            <ImageBackground
+                source={image}
+                imageStyle={{borderTopLeftRadius: 5, borderTopRightRadius: 5, height: '100%', width: '100%'}}
+                style={styles.bgImage}>
+                <Text style={styles.txtLink}>{title}</Text>
+            </ImageBackground>
         );
     }
 }
@@ -33,6 +32,6 @@ const styles = StyleSheet.create({
         fontSize: 19,
         color: '#000',
         fontWeight: 'bold',
-        marginRight: 17
-    }
+        marginRight: 10
+    },
 });
